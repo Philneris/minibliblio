@@ -17,14 +17,6 @@ class BookController extends Controller
     {
         $query = Book::query()->withCount('activeLoans');
 
-        if ($search = $request->query('search')) {
-            $query->where(function ($q) use ($search) {
-                $q->where('title', 'like', "%{$search}%")
-                  ->orWhere('author', 'like', "%{$search}%")
-                  ->orWhere('isbn', 'like', "%{$search}%");
-            });
-        }
-
         $books = $query->orderBy('title')->get();
 
         $books->each(function ($book) {
