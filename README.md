@@ -88,7 +88,7 @@ L'application est accessible sur **http://localhost:5173**.
 
 - **CRUD Livres** : création, consultation, modification, suppression
 - **CRUD Membres** : création, consultation, modification, suppression
-- **Emprunts** : emprunter un livre, retourner un livre, liste des emprunts en cours
+- **Emprunts** : emprunter un livre, retourner un livre, liste des emprunts en cours(pour les cas de retardataires le code en place ne fonctionne pas lorsqu'on teste)
 - **Règles métier** (toutes implémentées côté serveur) :
   - R1 : Max 3 emprunts en cours par membre
   - R2 : Pas d'emprunt si aucun exemplaire disponible
