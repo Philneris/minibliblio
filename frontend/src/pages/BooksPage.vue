@@ -51,16 +51,6 @@
           />
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">ISBN</label>
-          <input
-            v-model="form.isbn"
-            type="text"
-            required
-            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
-            placeholder="ISBN unique"
-          />
-        </div>
-        <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">Nombre d'exemplaires</label>
           <input
             v-model.number="form.total_copies"
@@ -162,7 +152,6 @@ const editingBook = ref(null)
 const form = ref({
   title: '',
   author: '',
-  isbn: '',
   total_copies: 1,
 })
 
@@ -184,7 +173,6 @@ function editBook(book) {
   form.value = {
     title: book.title,
     author: book.author,
-    isbn: book.isbn,
     total_copies: book.total_copies,
   }
   formErrors.value = null
@@ -195,7 +183,7 @@ function cancelForm() {
   showForm.value = false
   editingBook.value = null
   formErrors.value = null
-  form.value = { title: '', author: '', isbn: '', total_copies: 1 }
+  form.value = { title: '', author: '', total_copies: 1 }
 }
 
 async function submitForm() {

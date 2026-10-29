@@ -10,6 +10,27 @@ class Book extends Model
 {
     use HasFactory;
 
+    protected static function booted(): void
+    {
+        static::creating(function (Book $book) {
+            if (empty($book->isbn)) {
+                $book->isbn = self::generateUniqueIsbn();
+            }
+        });
+    }
+
+    /**
+     * Génère un ISBN-13 unique.
+     */
+    private static function generateUniqueIsbn(): string
+    {
+        do {
+            $isbn = '978' . str_pad(random_int(0, 9999999999), 10, '0', STR_PAD_LEFT);
+        } while (self::where('isbn', $isbn)->exists());
+
+        return $isbn;
+    }
+
     protected $fillable = [
         'title',
         'author',

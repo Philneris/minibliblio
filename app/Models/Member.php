@@ -15,25 +15,20 @@ class Member extends Model
         'email',
     ];
 
-    /**
-     * Tous les emprunts de ce membre.
-     */
+    // Tous les emprunts de ce membre.
+
     public function loans(): HasMany
     {
         return $this->hasMany(Loan::class);
     }
 
-    /**
-     * Emprunts en cours (non retournés) de ce membre.
-     */
+    // Emprunts en cours (non retournés) de ce membre.
     public function activeLoans(): HasMany
     {
         return $this->hasMany(Loan::class)->whereNull('actual_return_date');
     }
 
-    /**
-     * Vérifie si le membre a au moins un emprunt en retard.
-     */
+    // Vérifie si le membre a au moins un emprunt en retard.
     public function hasOverdueLoans(): bool
     {
         return $this->activeLoans()
