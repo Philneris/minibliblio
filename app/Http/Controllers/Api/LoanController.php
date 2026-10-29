@@ -32,10 +32,6 @@ class LoanController extends Controller
 
         $loans = $query->get();
 
-        $loans->each(function ($loan) {
-            $loan->is_overdue = $loan->is_overdue;
-        });
-
         return response()->json($loans);
     }
 

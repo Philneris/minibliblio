@@ -18,6 +18,8 @@ class Loan extends Model
         'actual_return_date',
     ];
 
+    protected $appends = ['is_overdue'];
+
     protected $casts = [
         'loan_date' => 'date',
         'expected_return_date' => 'date',
