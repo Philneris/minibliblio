@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\LoanController;
 use App\Http\Controllers\Api\MemberController;
 use Illuminate\Support\Facades\Route;
 
+
 // Livres
 Route::apiResource('books', BookController::class);
 
