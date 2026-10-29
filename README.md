@@ -83,11 +83,6 @@ npm run dev
 
 L'application est accessible sur **http://localhost:5173**.
 
-## Lancer les tests
-
-```bash
-php artisan test
-```
 
 ## Ce qui a été réalisé
 
@@ -99,12 +94,14 @@ php artisan test
   - R2 : Pas d'emprunt si aucun exemplaire disponible
   - R3 : Pas d'emprunt si le membre a un retard
   - R4 : Pas de suppression d'un livre avec emprunts en cours
-- **Indicateur « en retard »** sur les emprunts en cours
 - **Filtre par membre** sur la liste des emprunts
 - **Validation** côté serveur avec messages d'erreur clairs
-- **Tests automatisés** : 6 tests couvrant les 4 règles métier
 - **Seeders** : données de test réalistes (8 livres, 5 membres)
 - **SPA séparée** : frontend Vue.js consommant l'API REST
+
+## Ce qui n'a pas été fait
+
+- **Tests automatisés** : aucun test n'a été écrit.
 
 ## Choix techniques importants
 
